@@ -60,7 +60,7 @@ class WP_Theme_Install_List_Table extends WP_Themes_List_Table {
 		if ( 'search' === $tab ) {
 			$tabs['search'] = __( 'Search Results' );
 		}
-		$tabs['upload']   = __( 'Upload' );
+		$tabs['upload']   = _x( 'Upload', 'noun' );
 		$tabs['featured'] = _x( 'Featured', 'themes' );
 		//$tabs['popular']  = _x( 'Popular', 'themes' );
 		$tabs['new']     = _x( 'Latest', 'themes' );
@@ -230,6 +230,9 @@ class WP_Theme_Install_List_Table extends WP_Themes_List_Table {
 	}
 
 	/**
+	 * Generates the list table rows.
+	 *
+	 * @since 3.1.0
 	 */
 	public function display_rows() {
 		$themes = $this->items;

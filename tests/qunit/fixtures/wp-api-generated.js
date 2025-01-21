@@ -362,6 +362,14 @@ mockedApiResponse.Schema = {
                             "default": [],
                             "required": false
                         },
+                        "search_semantics": {
+                            "description": "How to interpret the search input.",
+                            "type": "string",
+                            "enum": [
+                                "exact"
+                            ],
+                            "required": false
+                        },
                         "offset": {
                             "description": "Offset the result set by a specific number of items.",
                             "type": "integer",
@@ -617,6 +625,27 @@ mockedApiResponse.Schema = {
                         "sticky": {
                             "description": "Limit result set to items that are sticky.",
                             "type": "boolean",
+                            "required": false
+                        },
+                        "format": {
+                            "description": "Limit result set to items assigned one or more given formats.",
+                            "type": "array",
+                            "uniqueItems": true,
+                            "items": {
+                                "enum": [
+                                    "standard",
+                                    "aside",
+                                    "chat",
+                                    "gallery",
+                                    "link",
+                                    "image",
+                                    "quote",
+                                    "status",
+                                    "video",
+                                    "audio"
+                                ],
+                                "type": "string"
+                            },
                             "required": false
                         }
                     }
@@ -1717,6 +1746,14 @@ mockedApiResponse.Schema = {
                         "menu_order": {
                             "description": "Limit result set to posts with a specific menu_order value.",
                             "type": "integer",
+                            "required": false
+                        },
+                        "search_semantics": {
+                            "description": "How to interpret the search input.",
+                            "type": "string",
+                            "enum": [
+                                "exact"
+                            ],
                             "required": false
                         },
                         "offset": {
@@ -2820,6 +2857,14 @@ mockedApiResponse.Schema = {
                             "default": [],
                             "required": false
                         },
+                        "search_semantics": {
+                            "description": "How to interpret the search input.",
+                            "type": "string",
+                            "enum": [
+                                "exact"
+                            ],
+                            "required": false
+                        },
                         "offset": {
                             "description": "Offset the result set by a specific number of items.",
                             "type": "integer",
@@ -3569,6 +3614,14 @@ mockedApiResponse.Schema = {
                                 "type": "integer"
                             },
                             "default": [],
+                            "required": false
+                        },
+                        "search_semantics": {
+                            "description": "How to interpret the search input.",
+                            "type": "string",
+                            "enum": [
+                                "exact"
+                            ],
                             "required": false
                         },
                         "offset": {
@@ -4380,6 +4433,14 @@ mockedApiResponse.Schema = {
                                 "type": "integer"
                             },
                             "default": [],
+                            "required": false
+                        },
+                        "search_semantics": {
+                            "description": "How to interpret the search input.",
+                            "type": "string",
+                            "enum": [
+                                "exact"
+                            ],
                             "required": false
                         },
                         "offset": {
@@ -6995,6 +7056,14 @@ mockedApiResponse.Schema = {
                             "default": [],
                             "required": false
                         },
+                        "search_semantics": {
+                            "description": "How to interpret the search input.",
+                            "type": "string",
+                            "enum": [
+                                "exact"
+                            ],
+                            "required": false
+                        },
                         "offset": {
                             "description": "Offset the result set by a specific number of items.",
                             "type": "integer",
@@ -7812,6 +7881,14 @@ mockedApiResponse.Schema = {
                             "default": [],
                             "required": false
                         },
+                        "search_semantics": {
+                            "description": "How to interpret the search input.",
+                            "type": "string",
+                            "enum": [
+                                "exact"
+                            ],
+                            "required": false
+                        },
                         "offset": {
                             "description": "Offset the result set by a specific number of items.",
                             "type": "integer",
@@ -7855,9 +7932,9 @@ mockedApiResponse.Schema = {
                         "theme_json_version": {
                             "description": "Version of the theme.json schema used for the typography settings.",
                             "type": "integer",
-                            "default": 2,
+                            "default": 3,
                             "minimum": 2,
-                            "maximum": 2,
+                            "maximum": 3,
                             "required": false
                         },
                         "font_family_settings": {
@@ -7924,9 +8001,9 @@ mockedApiResponse.Schema = {
                         "theme_json_version": {
                             "description": "Version of the theme.json schema used for the typography settings.",
                             "type": "integer",
-                            "default": 2,
+                            "default": 3,
                             "minimum": 2,
-                            "maximum": 2,
+                            "maximum": 3,
                             "required": false
                         },
                         "font_family_settings": {
@@ -8017,6 +8094,14 @@ mockedApiResponse.Schema = {
                             "default": [],
                             "required": false
                         },
+                        "search_semantics": {
+                            "description": "How to interpret the search input.",
+                            "type": "string",
+                            "enum": [
+                                "exact"
+                            ],
+                            "required": false
+                        },
                         "offset": {
                             "description": "Offset the result set by a specific number of items.",
                             "type": "integer",
@@ -8057,9 +8142,9 @@ mockedApiResponse.Schema = {
                         "theme_json_version": {
                             "description": "Version of the theme.json schema used for the typography settings.",
                             "type": "integer",
-                            "default": 2,
+                            "default": 3,
                             "minimum": 2,
-                            "maximum": 2,
+                            "maximum": 3,
                             "required": false
                         },
                         "font_face_settings": {
@@ -9371,6 +9456,9 @@ mockedApiResponse.Schema = {
                     "methods": [
                         "GET"
                     ],
+                    "allow_batch": {
+                        "v1": true
+                    },
                     "args": {
                         "context": {
                             "description": "Scope under which the request is made; determines fields present in response.",
@@ -9514,6 +9602,9 @@ mockedApiResponse.Schema = {
                     "methods": [
                         "POST"
                     ],
+                    "allow_batch": {
+                        "v1": true
+                    },
                     "args": {
                         "username": {
                             "description": "Login name for the user.",
@@ -9616,6 +9707,9 @@ mockedApiResponse.Schema = {
                     "methods": [
                         "GET"
                     ],
+                    "allow_batch": {
+                        "v1": true
+                    },
                     "args": {
                         "id": {
                             "description": "Unique identifier for the user.",
@@ -9641,6 +9735,9 @@ mockedApiResponse.Schema = {
                         "PUT",
                         "PATCH"
                     ],
+                    "allow_batch": {
+                        "v1": true
+                    },
                     "args": {
                         "id": {
                             "description": "Unique identifier for the user.",
@@ -9733,6 +9830,9 @@ mockedApiResponse.Schema = {
                     "methods": [
                         "DELETE"
                     ],
+                    "allow_batch": {
+                        "v1": true
+                    },
                     "args": {
                         "id": {
                             "description": "Unique identifier for the user.",
@@ -10738,88 +10838,105 @@ mockedApiResponse.Schema = {
                     ],
                     "args": {
                         "title": {
+                            "title": "Title",
                             "description": "Site title.",
                             "type": "string",
                             "required": false
                         },
                         "description": {
+                            "title": "Tagline",
                             "description": "Site tagline.",
                             "type": "string",
                             "required": false
                         },
                         "url": {
+                            "title": "",
                             "description": "Site URL.",
                             "type": "string",
                             "format": "uri",
                             "required": false
                         },
                         "email": {
+                            "title": "",
                             "description": "This address is used for admin purposes, like new user notification.",
                             "type": "string",
                             "format": "email",
                             "required": false
                         },
                         "timezone": {
+                            "title": "",
                             "description": "A city in the same timezone as you.",
                             "type": "string",
                             "required": false
                         },
                         "date_format": {
+                            "title": "",
                             "description": "A date format for all date strings.",
                             "type": "string",
                             "required": false
                         },
                         "time_format": {
+                            "title": "",
                             "description": "A time format for all time strings.",
                             "type": "string",
                             "required": false
                         },
                         "start_of_week": {
+                            "title": "",
                             "description": "A day number of the week that the week should start on.",
                             "type": "integer",
                             "required": false
                         },
                         "language": {
+                            "title": "",
                             "description": "WordPress locale code.",
                             "type": "string",
                             "required": false
                         },
                         "use_smilies": {
+                            "title": "",
                             "description": "Convert emoticons like :-) and :-P to graphics on display.",
                             "type": "boolean",
                             "required": false
                         },
                         "default_category": {
+                            "title": "",
                             "description": "Default post category.",
                             "type": "integer",
                             "required": false
                         },
                         "default_post_format": {
+                            "title": "",
                             "description": "Default post format.",
                             "type": "string",
                             "required": false
                         },
                         "posts_per_page": {
+                            "title": "Maximum posts per page",
                             "description": "Blog pages show at most.",
                             "type": "integer",
                             "required": false
                         },
                         "show_on_front": {
+                            "title": "Show on front",
                             "description": "What to show on the front page",
                             "type": "string",
                             "required": false
                         },
                         "page_on_front": {
+                            "title": "Page on front",
                             "description": "The ID of the page that should be displayed on the front page",
                             "type": "integer",
                             "required": false
                         },
                         "page_for_posts": {
+                            "title": "",
                             "description": "The ID of the page that should display the latest posts",
                             "type": "integer",
                             "required": false
                         },
                         "default_ping_status": {
+                            "title": "",
                             "description": "Allow link notifications from other blogs (pingbacks and trackbacks) on new articles.",
                             "type": "string",
                             "enum": [
@@ -10829,6 +10946,7 @@ mockedApiResponse.Schema = {
                             "required": false
                         },
                         "default_comment_status": {
+                            "title": "Allow comments on new posts",
                             "description": "Allow people to submit comments on new posts.",
                             "type": "string",
                             "enum": [
@@ -10838,11 +10956,13 @@ mockedApiResponse.Schema = {
                             "required": false
                         },
                         "site_logo": {
+                            "title": "Logo",
                             "description": "Site logo.",
                             "type": "integer",
                             "required": false
                         },
                         "site_icon": {
+                            "title": "Icon",
                             "description": "Site icon.",
                             "type": "integer",
                             "required": false
@@ -12287,10 +12407,28 @@ mockedApiResponse.PostsCollection = [
             1
         ],
         "tags": [],
+        "class_list": [
+            "post-4",
+            "post",
+            "type-post",
+            "status-publish",
+            "format-standard",
+            "hentry",
+            "category-uncategorized"
+        ],
         "_links": {
             "self": [
                 {
-                    "href": "http://example.org/index.php?rest_route=/wp/v2/posts/4"
+                    "href": "http://example.org/index.php?rest_route=/wp/v2/posts/4",
+                    "targetHints": {
+                        "allow": [
+                            "GET",
+                            "POST",
+                            "PUT",
+                            "PATCH",
+                            "DELETE"
+                        ]
+                    }
                 }
             ],
             "collection": [
@@ -12386,7 +12524,16 @@ mockedApiResponse.PostModel = {
     "categories": [
         1
     ],
-    "tags": []
+    "tags": [],
+    "class_list": [
+        "post-4",
+        "post",
+        "type-post",
+        "status-publish",
+        "format-standard",
+        "hentry",
+        "category-uncategorized"
+    ]
 };
 
 mockedApiResponse.postRevisions = [
@@ -12578,10 +12725,26 @@ mockedApiResponse.PagesCollection = [
         "meta": {
             "meta_key": ""
         },
+        "class_list": [
+            "post-7",
+            "page",
+            "type-page",
+            "status-publish",
+            "hentry"
+        ],
         "_links": {
             "self": [
                 {
-                    "href": "http://example.org/index.php?rest_route=/wp/v2/pages/7"
+                    "href": "http://example.org/index.php?rest_route=/wp/v2/pages/7",
+                    "targetHints": {
+                        "allow": [
+                            "GET",
+                            "POST",
+                            "PUT",
+                            "PATCH",
+                            "DELETE"
+                        ]
+                    }
                 }
             ],
             "collection": [
@@ -12661,7 +12824,14 @@ mockedApiResponse.PageModel = {
     "template": "",
     "meta": {
         "meta_key": ""
-    }
+    },
+    "class_list": [
+        "post-7",
+        "page",
+        "type-page",
+        "status-publish",
+        "hentry"
+    ]
 };
 
 mockedApiResponse.pageRevisions = [
@@ -12843,6 +13013,13 @@ mockedApiResponse.MediaCollection = [
         "meta": {
             "meta_key": ""
         },
+        "class_list": [
+            "post-10",
+            "attachment",
+            "type-attachment",
+            "status-inherit",
+            "hentry"
+        ],
         "description": {
             "rendered": "<p class=\"attachment\"><!-- <a...><img.../></a> --></p>"
         },
@@ -12858,7 +13035,16 @@ mockedApiResponse.MediaCollection = [
         "_links": {
             "self": [
                 {
-                    "href": "http://example.org/index.php?rest_route=/wp/v2/media/10"
+                    "href": "http://example.org/index.php?rest_route=/wp/v2/media/10",
+                    "targetHints": {
+                        "allow": [
+                            "GET",
+                            "POST",
+                            "PUT",
+                            "PATCH",
+                            "DELETE"
+                        ]
+                    }
                 }
             ],
             "collection": [
@@ -12905,6 +13091,13 @@ mockedApiResponse.MediaModel = {
     "meta": {
         "meta_key": ""
     },
+    "class_list": [
+        "post-10",
+        "attachment",
+        "type-attachment",
+        "status-inherit",
+        "hentry"
+    ],
     "description": {
         "rendered": "<p class=\"attachment\"><!-- <a...><img.../></a> --></p>"
     },
@@ -12933,6 +13126,8 @@ mockedApiResponse.TypesCollection = {
         ],
         "rest_base": "posts",
         "rest_namespace": "wp/v2",
+        "template": [],
+        "template_lock": false,
         "_links": {
             "collection": [
                 {
@@ -12963,6 +13158,8 @@ mockedApiResponse.TypesCollection = {
         "taxonomies": [],
         "rest_base": "pages",
         "rest_namespace": "wp/v2",
+        "template": [],
+        "template_lock": false,
         "_links": {
             "collection": [
                 {
@@ -12993,6 +13190,8 @@ mockedApiResponse.TypesCollection = {
         "taxonomies": [],
         "rest_base": "media",
         "rest_namespace": "wp/v2",
+        "template": [],
+        "template_lock": false,
         "_links": {
             "collection": [
                 {
@@ -13025,6 +13224,8 @@ mockedApiResponse.TypesCollection = {
         ],
         "rest_base": "menu-items",
         "rest_namespace": "wp/v2",
+        "template": [],
+        "template_lock": false,
         "_links": {
             "collection": [
                 {
@@ -13057,6 +13258,8 @@ mockedApiResponse.TypesCollection = {
         ],
         "rest_base": "blocks",
         "rest_namespace": "wp/v2",
+        "template": [],
+        "template_lock": false,
         "_links": {
             "collection": [
                 {
@@ -13087,6 +13290,8 @@ mockedApiResponse.TypesCollection = {
         "taxonomies": [],
         "rest_base": "templates",
         "rest_namespace": "wp/v2",
+        "template": [],
+        "template_lock": false,
         "_links": {
             "collection": [
                 {
@@ -13117,6 +13322,8 @@ mockedApiResponse.TypesCollection = {
         "taxonomies": [],
         "rest_base": "template-parts",
         "rest_namespace": "wp/v2",
+        "template": [],
+        "template_lock": false,
         "_links": {
             "collection": [
                 {
@@ -13147,6 +13354,8 @@ mockedApiResponse.TypesCollection = {
         "taxonomies": [],
         "rest_base": "global-styles",
         "rest_namespace": "wp/v2",
+        "template": [],
+        "template_lock": false,
         "_links": {
             "collection": [
                 {
@@ -13177,6 +13386,8 @@ mockedApiResponse.TypesCollection = {
         "taxonomies": [],
         "rest_base": "navigation",
         "rest_namespace": "wp/v2",
+        "template": [],
+        "template_lock": false,
         "_links": {
             "collection": [
                 {
@@ -13207,6 +13418,8 @@ mockedApiResponse.TypesCollection = {
         "taxonomies": [],
         "rest_base": "font-families",
         "rest_namespace": "wp/v2",
+        "template": [],
+        "template_lock": false,
         "_links": {
             "collection": [
                 {
@@ -13237,6 +13450,8 @@ mockedApiResponse.TypesCollection = {
         "taxonomies": [],
         "rest_base": "font-families/(?P<font_family_id>[\\d]+)/font-faces",
         "rest_namespace": "wp/v2",
+        "template": [],
+        "template_lock": false,
         "_links": {
             "collection": [
                 {
@@ -13271,7 +13486,9 @@ mockedApiResponse.TypeModel = {
         "post_tag"
     ],
     "rest_base": "posts",
-    "rest_namespace": "wp/v2"
+    "rest_namespace": "wp/v2",
+    "template": [],
+    "template_lock": false
 };
 
 mockedApiResponse.StatusesCollection = {
@@ -13524,7 +13741,15 @@ mockedApiResponse.CategoriesCollection = [
         "_links": {
             "self": [
                 {
-                    "href": "http://example.org/index.php?rest_route=/wp/v2/categories/1"
+                    "href": "http://example.org/index.php?rest_route=/wp/v2/categories/1",
+                    "targetHints": {
+                        "allow": [
+                            "GET",
+                            "POST",
+                            "PUT",
+                            "PATCH"
+                        ]
+                    }
                 }
             ],
             "collection": [
@@ -13589,7 +13814,16 @@ mockedApiResponse.TagsCollection = [
         "_links": {
             "self": [
                 {
-                    "href": "http://example.org/index.php?rest_route=/wp/v2/tags/2"
+                    "href": "http://example.org/index.php?rest_route=/wp/v2/tags/2",
+                    "targetHints": {
+                        "allow": [
+                            "GET",
+                            "POST",
+                            "PUT",
+                            "PATCH",
+                            "DELETE"
+                        ]
+                    }
                 }
             ],
             "collection": [
@@ -13643,9 +13877,9 @@ mockedApiResponse.UsersCollection = [
         "link": "http://example.org/?author=1",
         "slug": "admin",
         "avatar_urls": {
-            "24": "http://0.gravatar.com/avatar/96614ec98aa0c0d2ee75796dced6df54?s=24&d=mm&r=g",
-            "48": "http://0.gravatar.com/avatar/96614ec98aa0c0d2ee75796dced6df54?s=48&d=mm&r=g",
-            "96": "http://0.gravatar.com/avatar/96614ec98aa0c0d2ee75796dced6df54?s=96&d=mm&r=g"
+            "24": "https://secure.gravatar.com/avatar/9387ed9432ec25ef93df84b8a0b9697ddef435a945e7f244670c4f79f88363e9?s=24&d=mm&r=g",
+            "48": "https://secure.gravatar.com/avatar/9387ed9432ec25ef93df84b8a0b9697ddef435a945e7f244670c4f79f88363e9?s=48&d=mm&r=g",
+            "96": "https://secure.gravatar.com/avatar/9387ed9432ec25ef93df84b8a0b9697ddef435a945e7f244670c4f79f88363e9?s=96&d=mm&r=g"
         },
         "meta": {
             "meta_key": "meta_value"
@@ -13653,7 +13887,16 @@ mockedApiResponse.UsersCollection = [
         "_links": {
             "self": [
                 {
-                    "href": "http://example.org/index.php?rest_route=/wp/v2/users/1"
+                    "href": "http://example.org/index.php?rest_route=/wp/v2/users/1",
+                    "targetHints": {
+                        "allow": [
+                            "GET",
+                            "POST",
+                            "PUT",
+                            "PATCH",
+                            "DELETE"
+                        ]
+                    }
                 }
             ],
             "collection": [
@@ -13671,9 +13914,9 @@ mockedApiResponse.UsersCollection = [
         "link": "http://example.org/?author=2",
         "slug": "restapiclientfixtureuser",
         "avatar_urls": {
-            "24": "http://2.gravatar.com/avatar/57cbd982c963c7eb2294e2eee1b4448e?s=24&d=mm&r=g",
-            "48": "http://2.gravatar.com/avatar/57cbd982c963c7eb2294e2eee1b4448e?s=48&d=mm&r=g",
-            "96": "http://2.gravatar.com/avatar/57cbd982c963c7eb2294e2eee1b4448e?s=96&d=mm&r=g"
+            "24": "https://secure.gravatar.com/avatar/ea862d9636c72500beece7b1990870e2776f89c2096d0c064c14f2beb910077d?s=24&d=mm&r=g",
+            "48": "https://secure.gravatar.com/avatar/ea862d9636c72500beece7b1990870e2776f89c2096d0c064c14f2beb910077d?s=48&d=mm&r=g",
+            "96": "https://secure.gravatar.com/avatar/ea862d9636c72500beece7b1990870e2776f89c2096d0c064c14f2beb910077d?s=96&d=mm&r=g"
         },
         "meta": {
             "meta_key": ""
@@ -13681,7 +13924,16 @@ mockedApiResponse.UsersCollection = [
         "_links": {
             "self": [
                 {
-                    "href": "http://example.org/index.php?rest_route=/wp/v2/users/2"
+                    "href": "http://example.org/index.php?rest_route=/wp/v2/users/2",
+                    "targetHints": {
+                        "allow": [
+                            "GET",
+                            "POST",
+                            "PUT",
+                            "PATCH",
+                            "DELETE"
+                        ]
+                    }
                 }
             ],
             "collection": [
@@ -13701,9 +13953,9 @@ mockedApiResponse.UserModel = {
     "link": "http://example.org/?author=2",
     "slug": "restapiclientfixtureuser",
     "avatar_urls": {
-        "24": "http://2.gravatar.com/avatar/57cbd982c963c7eb2294e2eee1b4448e?s=24&d=mm&r=g",
-        "48": "http://2.gravatar.com/avatar/57cbd982c963c7eb2294e2eee1b4448e?s=48&d=mm&r=g",
-        "96": "http://2.gravatar.com/avatar/57cbd982c963c7eb2294e2eee1b4448e?s=96&d=mm&r=g"
+        "24": "https://secure.gravatar.com/avatar/ea862d9636c72500beece7b1990870e2776f89c2096d0c064c14f2beb910077d?s=24&d=mm&r=g",
+        "48": "https://secure.gravatar.com/avatar/ea862d9636c72500beece7b1990870e2776f89c2096d0c064c14f2beb910077d?s=48&d=mm&r=g",
+        "96": "https://secure.gravatar.com/avatar/ea862d9636c72500beece7b1990870e2776f89c2096d0c064c14f2beb910077d?s=96&d=mm&r=g"
     },
     "meta": {
         "meta_key": ""
@@ -13718,9 +13970,9 @@ mockedApiResponse.me = {
     "link": "http://example.org/?author=2",
     "slug": "restapiclientfixtureuser",
     "avatar_urls": {
-        "24": "http://2.gravatar.com/avatar/57cbd982c963c7eb2294e2eee1b4448e?s=24&d=mm&r=g",
-        "48": "http://2.gravatar.com/avatar/57cbd982c963c7eb2294e2eee1b4448e?s=48&d=mm&r=g",
-        "96": "http://2.gravatar.com/avatar/57cbd982c963c7eb2294e2eee1b4448e?s=96&d=mm&r=g"
+        "24": "https://secure.gravatar.com/avatar/ea862d9636c72500beece7b1990870e2776f89c2096d0c064c14f2beb910077d?s=24&d=mm&r=g",
+        "48": "https://secure.gravatar.com/avatar/ea862d9636c72500beece7b1990870e2776f89c2096d0c064c14f2beb910077d?s=48&d=mm&r=g",
+        "96": "https://secure.gravatar.com/avatar/ea862d9636c72500beece7b1990870e2776f89c2096d0c064c14f2beb910077d?s=96&d=mm&r=g"
     },
     "meta": {
         "meta_key": ""
@@ -13744,9 +13996,9 @@ mockedApiResponse.CommentsCollection = [
         "status": "approved",
         "type": "comment",
         "author_avatar_urls": {
-            "24": "http://2.gravatar.com/avatar/bd7c2b505bcf39cc71cfee564c614956?s=24&d=mm&r=g",
-            "48": "http://2.gravatar.com/avatar/bd7c2b505bcf39cc71cfee564c614956?s=48&d=mm&r=g",
-            "96": "http://2.gravatar.com/avatar/bd7c2b505bcf39cc71cfee564c614956?s=96&d=mm&r=g"
+            "24": "https://secure.gravatar.com/avatar/9ca51ced0b389ffbeba3d269c6d824be664c84fa1b35503282abdd302e1f417c?s=24&d=mm&r=g",
+            "48": "https://secure.gravatar.com/avatar/9ca51ced0b389ffbeba3d269c6d824be664c84fa1b35503282abdd302e1f417c?s=48&d=mm&r=g",
+            "96": "https://secure.gravatar.com/avatar/9ca51ced0b389ffbeba3d269c6d824be664c84fa1b35503282abdd302e1f417c?s=96&d=mm&r=g"
         },
         "meta": {
             "meta_key": "meta_value"
@@ -13754,7 +14006,16 @@ mockedApiResponse.CommentsCollection = [
         "_links": {
             "self": [
                 {
-                    "href": "http://example.org/index.php?rest_route=/wp/v2/comments/2"
+                    "href": "http://example.org/index.php?rest_route=/wp/v2/comments/2",
+                    "targetHints": {
+                        "allow": [
+                            "GET",
+                            "POST",
+                            "PUT",
+                            "PATCH",
+                            "DELETE"
+                        ]
+                    }
                 }
             ],
             "collection": [
@@ -13789,9 +14050,9 @@ mockedApiResponse.CommentModel = {
     "status": "approved",
     "type": "comment",
     "author_avatar_urls": {
-        "24": "http://2.gravatar.com/avatar/bd7c2b505bcf39cc71cfee564c614956?s=24&d=mm&r=g",
-        "48": "http://2.gravatar.com/avatar/bd7c2b505bcf39cc71cfee564c614956?s=48&d=mm&r=g",
-        "96": "http://2.gravatar.com/avatar/bd7c2b505bcf39cc71cfee564c614956?s=96&d=mm&r=g"
+        "24": "https://secure.gravatar.com/avatar/9ca51ced0b389ffbeba3d269c6d824be664c84fa1b35503282abdd302e1f417c?s=24&d=mm&r=g",
+        "48": "https://secure.gravatar.com/avatar/9ca51ced0b389ffbeba3d269c6d824be664c84fa1b35503282abdd302e1f417c?s=48&d=mm&r=g",
+        "96": "https://secure.gravatar.com/avatar/9ca51ced0b389ffbeba3d269c6d824be664c84fa1b35503282abdd302e1f417c?s=96&d=mm&r=g"
     },
     "meta": {
         "meta_key": "meta_value"
